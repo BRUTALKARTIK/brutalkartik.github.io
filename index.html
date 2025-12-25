@@ -6,7 +6,37 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <style>
+    /* Philosopher background layer */
+#philosophers {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.philosopher {
+  position: absolute;
+  font-size: 22px;
+  color: rgba(255, 255, 255, 0.08);
+  animation: float 25s linear infinite;
+  white-space: nowrap;
+}
+
+@keyframes float {
+  from {
+    transform: translateY(110vh);
+  }
+  to {
+    transform: translateY(-10vh);
+  }
+}
+
     body {
+    
       background-attachment: fixed;
       background-attachment: scroll;
 
@@ -90,8 +120,19 @@ section.show {
 </head>
 
 <body>
+  <div id="philosophers">
+  <div class="philosopher" style="left:10%;">Socrates</div>
+  <div class="philosopher" style="left:30%; animation-duration:30s;">Aristotle</div>
+  <div class="philosopher" style="left:50%; animation-duration:28s;">Spinoza</div>
+  <div class="philosopher" style="left:70%; animation-duration:35s;">Bertrand Russell</div>
+  <div class="philosopher" style="left:85%; animation-duration:32s;">Karl Popper</div>
+</div>
+
 
 <header>
+  position: relative;
+z-index: 1;
+
   <h1>Rationalism & Science</h1>
   <p>Promoting reason, evidence, and critical thinking</p>
   <nav>
@@ -118,6 +159,9 @@ section.show {
 </section>
 
 <section>
+  position: relative;
+z-index: 1;
+
   <h2>Core Principles</h2>
   <ul>
     <li>Evidence over belief</li>
@@ -128,6 +172,9 @@ section.show {
 </section>
 
 <footer>
+  position: relative;
+z-index: 1;
+
   © 2025 • Rationalism & Science • Reason Over Dogma
 </footer>
 <script>
