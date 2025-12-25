@@ -44,13 +44,22 @@
     }
 
     section {
-      max-width: 900px;
-      margin: 40px auto;
-      padding: 30px;
-      background: rgba(13,17,23,0.85);
-      border-radius: 12px;
-      animation: slideUp 1.5s ease;
-    }
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 30px;
+  background: rgba(13,17,23,0.85);
+  border-radius: 12px;
+
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.8s ease-out;
+}
+
+section.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 
     @keyframes slideUp {
       from {
@@ -119,5 +128,23 @@
 </footer>
 
 </body>
+  <script>
+  const sections = document.querySelectorAll("section");
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("show");
+      }
+    });
+  }, {
+    threshold: 0.2
+  });
+
+  sections.forEach(section => {
+    observer.observe(section);
+  });
+</script>
+
 </html>
 
