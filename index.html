@@ -4,38 +4,74 @@
   <title>Rationalism & Science</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background: #0d1117;
-      color: #e6edf3;
       margin: 0;
+      font-family: "Segoe UI", Arial, sans-serif;
+      color: #e6edf3;
+      background:
+        linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
+        url("https://images.unsplash.com/photo-1446776811953-b23d57bd21aa");
+      background-size: cover;
+      background-attachment: fixed;
+      background-position: center;
+      animation: fadeIn 2s ease-in;
     }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
     header {
-      background: #161b22;
-      padding: 30px;
+      background: rgba(22,27,34,0.8);
+      padding: 40px;
       text-align: center;
     }
+
+    nav a {
+      color: #58a6ff;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: transform 0.3s, color 0.3s;
+    }
+
+    nav a:hover {
+      color: #ffffff;
+      transform: scale(1.1);
+    }
+
     section {
       max-width: 900px;
-      margin: auto;
+      margin: 40px auto;
       padding: 30px;
-      line-height: 1.7;
+      background: rgba(13,17,23,0.85);
+      border-radius: 12px;
+      animation: slideUp 1.5s ease;
     }
+
+    @keyframes slideUp {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
     h1, h2 {
       color: #58a6ff;
     }
+
     footer {
-      background: #161b22;
+      background: rgba(22,27,34,0.9);
       text-align: center;
-      padding: 15px;
+      padding: 20px;
       font-size: 14px;
-    }
-    nav a {
-      color: #58a6ff;
-      margin: 0 10px;
-      text-decoration: none;
-      font-weight: bold;
     }
   </style>
 </head>
@@ -46,32 +82,29 @@
   <h1>Rationalism & Science</h1>
   <p>Promoting reason, evidence, and critical thinking</p>
   <nav>
-    <a href="about.html">About</a>
-    <a href="#">Home</a>
-    <a href="#rationalism">Rationalism</a>
-    <a href="#science">Science</a>
-    <a href="#principles">Principles</a>
+    <a href="index.html">Home</a>
     <a href="articles.html">Articles</a>
+    <a href="about.html">About</a>
   </nav>
 </header>
 
-<section id="rationalism">
+<section>
   <h2>What Is Rationalism?</h2>
   <p>
     Rationalism is the practice of forming beliefs based on logic, evidence,
-    and reason rather than superstition, tradition, or blind authority.
+    and reason rather than superstition or blind authority.
   </p>
 </section>
 
-<section id="science">
+<section>
   <h2>Why Science Matters</h2>
   <p>
     Science is humanity’s most reliable method for understanding reality.
-    It depends on observation, experimentation, skepticism, and peer review.
+    It progresses by questioning, testing, and improving ideas.
   </p>
 </section>
 
-<section id="principles">
+<section>
   <h2>Core Principles</h2>
   <ul>
     <li>Evidence over belief</li>
@@ -80,21 +113,9 @@
     <li>Change beliefs when facts change</li>
   </ul>
 </section>
-  
-<section>
-  <h2>Quotes</h2>
-  <p>
-    “Extraordinary claims require extraordinary evidence.”  
-    <br>— Carl Sagan
-  </p>
-  <p>
-    “The good thing about science is that it’s true whether or not you believe in it.”  
-    <br>— Neil deGrasse Tyson
-  </p>
-</section>
 
 <footer>
-  © 2025 • BRUTAL KARTIK • 
+  © 2025 • Rationalism & Science • BRUTAL KARTIK
 </footer>
 
 </body>
