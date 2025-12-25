@@ -37,8 +37,7 @@
       background: #161b22;
       font-size: 14px;
     }
-  </style>
-  article {
+    article {
   opacity: 0;
   transform: translateY(40px);
   transition: all 0.8s ease-out;
@@ -47,6 +46,9 @@ article.show {
   opacity: 1;
   transform: translateY(0);
 }
+
+  </style>
+ 
 </head>
 <script>
   const article = document.querySelector("article");
@@ -94,6 +96,17 @@ article.show {
 <footer>
   © 2025 • Rationalism & Science
 </footer>
+<script>
+  const article = document.querySelector("article");
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("show");
+      }
+    });
+  }, { threshold: 0.2 });
+  observer.observe(article);
+</script>
 
 </body>
 </html>
