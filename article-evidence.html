@@ -7,16 +7,18 @@
 
   <style>
     body {
+      margin: 0;
       font-family: Georgia, serif;
       background: #0d1117;
       color: #e6edf3;
-      margin: 0;
     }
+
     header {
-      background: #161b22;
-      padding: 25px;
+      background: rgba(22,27,34,0.85);
+      padding: 30px;
       text-align: center;
     }
+
     article {
       max-width: 800px;
       margin: auto;
@@ -24,43 +26,24 @@
       line-height: 1.8;
       font-size: 18px;
     }
+
     h1 {
       color: #58a6ff;
     }
+
     a {
       color: #58a6ff;
       text-decoration: none;
     }
+
     footer {
+      background: rgba(22,27,34,0.85);
       text-align: center;
-      padding: 20px;
-      background: #161b22;
+      padding: 15px;
       font-size: 14px;
     }
-    article {
-  opacity: 0;
-  transform: translateY(40px);
-  transition: all 0.8s ease-out;
-}
-article.show {
-  opacity: 1;
-  transform: translateY(0);
-}
-
   </style>
- 
 </head>
-<script>
-  const article = document.querySelector("article");
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("show");
-      }
-    });
-  }, { threshold: 0.2 });
-  observer.observe(article);
-</script>
 
 <body>
 
@@ -96,24 +79,7 @@ article.show {
 <footer>
   © 2025 • Rationalism & Science
 </footer>
-<script>
-  const article = document.querySelector("article");
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("show");
-      }
-    });
-  }, { threshold: 0.2 });
-  observer.observe(article);
-</script>
 
 </body>
 </html>
 
-
-<p><a href="articles.html" style="color:#58a6ff;">← Back to Articles</a></p>
-
-</body>
-</html>
-  
