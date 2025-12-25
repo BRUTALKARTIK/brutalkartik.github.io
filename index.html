@@ -7,6 +7,10 @@
 
   <style>
     body {
+      background-attachment: fixed;
+      background-attachment: scroll;
+
+
       margin: 0;
       font-family: "Segoe UI", Arial, sans-serif;
       color: #e6edf3;
@@ -126,6 +130,12 @@ section.show {
 <footer>
   © 2025 • Rationalism & Science • Reason Over Dogma
 </footer>
+<script>
+  window.addEventListener("scroll", () => {
+    document.body.style.backgroundPositionY =
+      -(window.scrollY * 0.3) + "px";
+  });
+</script>
 
 </body>
   <script>
