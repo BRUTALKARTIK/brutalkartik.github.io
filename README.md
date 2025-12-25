@@ -1,2 +1,3 @@
-# brutalkartik.github.io
+# thinkrational.github.io
+
 Rationalism and Science Website
