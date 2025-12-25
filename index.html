@@ -44,8 +44,10 @@
       to { transform: translateY(-20vh); }
     }
 
+    /* Bring main content above floating text */
     header, section, footer {
-     
+      position: relative;
+      z-index: 1;
     }
 
     header {
@@ -102,10 +104,75 @@
 <!-- Background -->
 <div id="background"></div>
 
-<!-- Floating philosophers -->
+<!-- Floating philosopher names -->
 <div class="philosopher" style="left:10%;">Socrates</div>
 <div class="philosopher" style="left:30%; animation-duration:35s;">Aristotle</div>
 <div class="philosopher" style="left:50%; animation-duration:28s;">Spinoza</div>
 <div class="philosopher" style="left:70%; animation-duration:40s;">Bertrand Russell</div>
-<div class="philosophe
+<div class="philosopher" style="left:85%; animation-duration:32s;">Karl Popper</div>
+
+<header>
+  <h1>Rationalism & Science</h1>
+  <p>Promoting reason, evidence, and critical thinking</p>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="articles.html">Articles</a>
+    <a href="about.html">About</a>
+  </nav>
+</header>
+
+<section>
+  <h2>What Is Rationalism?</h2>
+  <p>
+    Rationalism is the practice of forming beliefs based on logic, evidence,
+    and reason rather than superstition or blind authority.
+  </p>
+</section>
+
+<section>
+  <h2>Why Science Matters</h2>
+  <p>
+    Science is humanity’s most reliable method for understanding reality.
+    It progresses by questioning, testing, and improving ideas.
+  </p>
+</section>
+
+<section>
+  <h2>Core Principles</h2>
+  <ul>
+    <li>Evidence over belief</li>
+    <li>Question everything</li>
+    <li>Extraordinary claims require extraordinary evidence</li>
+    <li>Change beliefs when facts change</li>
+  </ul>
+</section>
+
+<footer>
+  © 2025 • Rationalism & Science • Reason Over Dogma
+</footer>
+
+<script>
+  // Scroll animation for sections
+  const sections = document.querySelectorAll("section");
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("show");
+      }
+    });
+  }, { threshold: 0.2 });
+
+  sections.forEach(section => observer.observe(section));
+
+  // Parallax background on scroll
+  window.addEventListener("scroll", () => {
+    document.getElementById("background").style.backgroundPositionY =
+      -(window.scrollY * 0.3) + "px";
+  });
+</script>
+
+</body>
+</html>
+
 
