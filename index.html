@@ -6,60 +6,51 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <style>
-    /* Philosopher background layer */
-#philosophers {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: 0;
-  overflow: hidden;
-}
-
-.philosopher {
-  position: absolute;
-  font-size: 22px;
-  color: rgba(255, 255, 255, 0.08);
-  animation: float 25s linear infinite;
-  white-space: nowrap;
-}
-
-@keyframes float {
-  from {
-    transform: translateY(110vh);
-  }
-  to {
-    transform: translateY(-10vh);
-  }
-}
-
     body {
-    
-      background-attachment: fixed;
-      background-attachment: scroll;
-
-
       margin: 0;
       font-family: "Segoe UI", Arial, sans-serif;
       color: #e6edf3;
+      background-color: #0d1117;
+    }
+
+    /* Background image layer */
+    #background {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
       background:
         linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
         url("https://images.unsplash.com/photo-1446776811953-b23d57bd21aa");
       background-size: cover;
-      background-attachment: fixed;
       background-position: center;
-      animation: fadeIn 2s ease-in;
+      z-index: -3;
     }
 
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
+    /* Floating philosopher names */
+    .philosopher {
+      position: fixed;
+      font-size: 20px;
+      color: rgba(255, 255, 255, 0.15);
+      animation: floatUp 30s linear infinite;
+      pointer-events: none;
+      z-index: -2;
+      white-space: nowrap;
+    }
+
+    @keyframes floatUp {
+      from { transform: translateY(110vh); }
+      to { transform: translateY(-20vh); }
+    }
+
+    header, section, footer {
+      position: relative;
+      z-index: 1;
     }
 
     header {
-      background: rgba(22,27,34,0.8);
+      background: rgba(22,27,34,0.85);
       padding: 40px;
       text-align: center;
     }
@@ -78,32 +69,20 @@
     }
 
     section {
-  max-width: 900px;
-  margin: 40px auto;
-  padding: 30px;
-  background: rgba(13,17,23,0.85);
-  border-radius: 12px;
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 30px;
+      background: rgba(13,17,23,0.85);
+      border-radius: 12px;
 
-  opacity: 0;
-  transform: translateY(50px);
-  transition: all 0.8s ease-out;
-}
+      opacity: 0;
+      transform: translateY(50px);
+      transition: all 0.8s ease-out;
+    }
 
-section.show {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-
-    @keyframes slideUp {
-      from {
-        opacity: 0;
-        transform: translateY(40px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+    section.show {
+      opacity: 1;
+      transform: translateY(0);
     }
 
     h1, h2 {
@@ -120,88 +99,14 @@ section.show {
 </head>
 
 <body>
-  <div id="philosophers">
-  <div class="philosopher" style="left:10%;">Socrates</div>
-  <div class="philosopher" style="left:30%; animation-duration:30s;">Aristotle</div>
-  <div class="philosopher" style="left:50%; animation-duration:28s;">Spinoza</div>
-  <div class="philosopher" style="left:70%; animation-duration:35s;">Bertrand Russell</div>
-  <div class="philosopher" style="left:85%; animation-duration:32s;">Karl Popper</div>
-</div>
 
+<!-- Background -->
+<div id="background"></div>
 
-<header>
-  position: relative;
-z-index: 1;
-
-  <h1>Rationalism & Science</h1>
-  <p>Promoting reason, evidence, and critical thinking</p>
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="articles.html">Articles</a>
-    <a href="about.html">About</a>
-  </nav>
-</header>
-
-<section>
-  <h2>What Is Rationalism?</h2>
-  <p>
-    Rationalism is the practice of forming beliefs based on logic, evidence,
-    and reason rather than superstition or blind authority.
-  </p>
-</section>
-
-<section>
-  <h2>Why Science Matters</h2>
-  <p>
-    Science is humanity’s most reliable method for understanding reality.
-    It progresses by questioning, testing, and improving ideas.
-  </p>
-</section>
-
-<section>
-  position: relative;
-z-index: 1;
-
-  <h2>Core Principles</h2>
-  <ul>
-    <li>Evidence over belief</li>
-    <li>Question everything</li>
-    <li>Extraordinary claims require extraordinary evidence</li>
-    <li>Change beliefs when facts change</li>
-  </ul>
-</section>
-
-<footer>
-  position: relative;
-z-index: 1;
-
-  © 2025 • Rationalism & Science • Reason Over Dogma
-</footer>
-<script>
-  window.addEventListener("scroll", () => {
-    document.body.style.backgroundPositionY =
-      -(window.scrollY * 0.3) + "px";
-  });
-</script>
-
-</body>
-  <script>
-  const sections = document.querySelectorAll("section");
-
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("show");
-      }
-    });
-  }, {
-    threshold: 0.2
-  });
-
-  sections.forEach(section => {
-    observer.observe(section);
-  });
-</script>
-
-</html>
+<!-- Floating philosophers -->
+<div class="philosopher" style="left:10%;">Socrates</div>
+<div class="philosopher" style="left:30%; animation-duration:35s;">Aristotle</div>
+<div class="philosopher" style="left:50%; animation-duration:28s;">Spinoza</div>
+<div class="philosopher" style="left:70%; animation-duration:40s;">Bertrand Russell</div>
+<div class="philosophe
 
